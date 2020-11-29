@@ -80,7 +80,8 @@ class _HomePageState extends State<HomePage> {
                 setState(() {
                   if (isNumeric(value)) {
                     error = null;
-                  } else {
+                  }
+                  else {
                     error = 'Enter a valid number!';
                   }
                   amount = value;

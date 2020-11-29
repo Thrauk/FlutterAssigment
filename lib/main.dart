@@ -1,4 +1,4 @@
-import 'src/currency.dart' as app;
+import 'src/number_shape.dart' as app;
 
 void main() {
   app.main();
