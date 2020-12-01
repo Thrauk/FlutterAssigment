@@ -148,7 +148,7 @@ class _HomePageState extends State<HomePage> {
             })
       ]),
     );
-    showDialog(
+    showDialog<void>(
       context: context,
       builder: (BuildContext context) {
         return alertDialog;

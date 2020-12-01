@@ -182,7 +182,7 @@ class _HomePageState extends State<HomePage> {
             })
       ]),
     );
-    showDialog(
+    showDialog<void>(
       barrierDismissible: false,
       context: context,
       builder: (BuildContext context) {
