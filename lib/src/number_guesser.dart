@@ -1,11 +1,9 @@
 import 'dart:core';
-import 'dart:core';
+import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import 'dart:math';
 
 void main() {
   runApp(MyApp());
@@ -30,13 +28,14 @@ class HomePage extends StatefulWidget {
 // Change that variable in setState
 
 class _HomePageState extends State<HomePage> {
-  Random random = new Random();
+  Random random = Random();
   String guessedNumber = '';
   int guessedNumberInt = 0;
   int randomNumber;
-  String error = null;
+  String error;
   String gameText = '';
 
+  @override
   void initState() {
     super.initState();
     randomNumber = random.nextInt(100) + 1;
@@ -165,18 +164,18 @@ class _HomePageState extends State<HomePage> {
   }
 
   void guessDialog(BuildContext context) {
-    var alertDialog = AlertDialog(
-      title: Text(
+    final AlertDialog alertDialog = AlertDialog(
+      title: const Text(
         'You guessed right!',
         textAlign: TextAlign.center,
       ),
       content: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-        Text(
+        const Text(
           'Try again?',
           textAlign: TextAlign.center,
         ),
         FlatButton(
-            child: Text('Ok'),
+            child: const Text('Ok'),
             onPressed: () {
               Navigator.of(context).pop();
             })

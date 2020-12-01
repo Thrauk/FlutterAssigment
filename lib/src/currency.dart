@@ -1,5 +1,4 @@
 import 'dart:core';
-import 'dart:core';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -29,17 +28,23 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   String amount = '';
-  String error = null;
+  String error;
   String result = '';
   String dropdownValueFrom = 'EUR / Euro';
   String dropdownValueTo = 'EUR / Euro';
+
+  // ignore: always_specify_types
   List<String> currencyShort = ['EUR', 'RON', 'USD', 'GBP'];
+
+  // ignore: always_specify_types
   List<String> currency = [
     'EUR / Euro',
     'RON / Romanian Leu',
     'USD / US Dollar',
     'GBP / Pound Sterling'
   ];
+
+  // ignore: always_specify_types
   List<double> valueInEur = [1.0, 0.2054, 0.8434, 1.1205];
 
   int fromIndex = 0;
@@ -80,8 +85,7 @@ class _HomePageState extends State<HomePage> {
                 setState(() {
                   if (isNumeric(value)) {
                     error = null;
-                  }
-                  else {
+                  } else {
                     error = 'Enter a valid number!';
                   }
                   amount = value;
@@ -139,8 +143,8 @@ class _HomePageState extends State<HomePage> {
                   });
                 } else {
                   if (error == null || error == '') {
-                    double fromValue = double.parse(amount);
-                    double toValue = fromValue *
+                    final double fromValue = double.parse(amount);
+                    final double toValue = fromValue *
                         valueInEur.elementAt(fromIndex) /
                         valueInEur.elementAt(toIndex);
                     setState(() {
@@ -168,7 +172,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             Text(result,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 20,
                   color: Colors.blueAccent,
                 )),

@@ -1,11 +1,9 @@
 import 'dart:core';
-import 'dart:core';
+import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import 'dart:math';
 
 void main() {
   runApp(MyApp());
@@ -30,11 +28,11 @@ class HomePage extends StatefulWidget {
 // Change that variable in setState
 
 class _HomePageState extends State<HomePage> {
-  Random random = new Random();
+  Random random = Random();
   String typedNumber = '';
   int guessedNumberInt = 0;
   int randomNumber;
-  String error = null;
+  String error;
   String dialogText = '';
 
   bool isInt(String s) {
@@ -45,12 +43,12 @@ class _HomePageState extends State<HomePage> {
   }
 
   bool isSquare(int number) {
-    double val = sqrt(number);
+    final double val = sqrt(number);
     return val % 1 == 0;
   }
 
   bool isTriangular(int number) {
-    double val = (sqrt(8 * number + 1) - 1) / 2;
+    final double val = (sqrt(8 * number + 1) - 1) / 2;
     return val % 1 == 0;
   }
 
@@ -135,14 +133,14 @@ class _HomePageState extends State<HomePage> {
   }
 
   void shapeDialog(BuildContext context) {
-    var alertDialog = AlertDialog(
+    final AlertDialog alertDialog = AlertDialog(
       title: Text(
         dialogText,
         textAlign: TextAlign.center,
       ),
       content: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
         FlatButton(
-            child: Text('Ok'),
+            child: const Text('Ok'),
             onPressed: () {
               Navigator.of(context).pop();
             })

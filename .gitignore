@@ -44,3 +44,7 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+/lib/src/01.dart
+/lib/src/02.dart
+/lib/src/03.dart
+/lib/src/04.dart
