@@ -1,4 +1,4 @@
-import 'src/tic-tac-toe.dart' as app;
+import 'src/movies_filter.dart' as app;
 
 void main() {
   app.main();
