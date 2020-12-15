@@ -20,11 +20,14 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  // ignore: always_specify_types
   List<List<int>> table = List<List<int>>.generate(3, (int i) => [0, 0, 0], growable: false);
   List<List<Color>> tableColor =
+      // ignore: always_specify_types
       List<List<Color>>.generate(3, (int i) => [Colors.black, Colors.black, Colors.black], growable: false);
   Color playerOneColor = Colors.red;
   Color playerTwoColor = Colors.green;
+  // ignore: always_specify_types
   List<Color> playerColor = [Colors.red, Colors.green];
 
   int currentPlayer = 1;
@@ -37,6 +40,7 @@ class _HomeState extends State<Home> {
   }
 
   bool isOnDiagonal(int X, int Y) {
+    // ignore: always_put_control_body_on_new_line
     if ((X == 0 && Y == 1) || (X == 1 && Y == 0) || (X == 1 && Y == 2) || (X == 2 && Y == 1)) return false;
     return true;
   }
@@ -53,6 +57,7 @@ class _HomeState extends State<Home> {
 
   bool checkColumn(int Y, int player) {
     for (int i = 0; i < 3; i++) {
+      // ignore: always_put_control_body_on_new_line
       if (table[i][Y] != table[0][Y]) return false;
     }
     return true;
@@ -60,13 +65,14 @@ class _HomeState extends State<Home> {
 
   bool checkRow(int X, int player) {
     for (int i = 0; i < 3; i++) {
+      // ignore: always_put_control_body_on_new_line
       if (table[X][i] != player) return false;
     }
     return true;
   }
 
   bool isFull() {
-    for (List<int> x in table) {
+    for (final List<int> x in table) {
       if (x.contains(0)) {
         return false;
       }
@@ -97,9 +103,9 @@ class _HomeState extends State<Home> {
   void drawWinner(List<List<int>> coords) {
     _isVisible = true;
     _enabledTap = false;
-    List<int> coord0 = coords[0];
-    List<int> coord1 = coords[1];
-    List<int> coord2 = coords[2];
+    final List<int> coord0 = coords[0];
+    final List<int> coord1 = coords[1];
+    final List<int> coord2 = coords[2];
     for (int i = 0; i < 3; i++) {
       for (int j = 0; j < 3; j++) {
         if ((coord0[0] != i || coord0[1] != j) &&
@@ -118,16 +124,24 @@ class _HomeState extends State<Home> {
       final int diag = checkDiagonal(lastX, lastY, lastPlayer);
       if (diag != -1) {
         if (diag == 1) {
+          // ignore: always_specify_types
           drawWinner([
+            // ignore: always_specify_types
             [0, 0],
+            // ignore: always_specify_types
             [1, 1],
+            // ignore: always_specify_types
             [2, 2]
           ]);
           return;
         } else {
+          // ignore: always_specify_types
           drawWinner([
+            // ignore: always_specify_types
             [0, 2],
+            // ignore: always_specify_types
             [1, 1],
+            // ignore: always_specify_types
             [2, 0]
           ]);
           return;
@@ -135,15 +149,23 @@ class _HomeState extends State<Home> {
       }
     }
     if (checkColumn(lastY, lastPlayer)) {
+      // ignore: always_specify_types
       drawWinner([
+        // ignore: always_specify_types
         [0, lastY],
+        // ignore: always_specify_types
         [1, lastY],
+        // ignore: always_specify_types
         [2, lastY]
       ]);
     } else if (checkRow(lastX, lastPlayer)) {
+      // ignore: always_specify_types
       drawWinner([
+        // ignore: always_specify_types
         [lastX, 0],
+        // ignore: always_specify_types
         [lastX, 1],
+        // ignore: always_specify_types
         [lastX, 2]
       ]);
     } else if (isFull()) {
@@ -191,7 +213,9 @@ class _HomeState extends State<Home> {
                 setState(() {
                   _isVisible = false;
                   _enabledTap = true;
+                  // ignore: always_specify_types
                   table = List<List<int>>.generate(3, (int i) => [0, 0, 0], growable: false);
+                  // ignore: always_specify_types
                   tableColor = List<List<Color>>.generate(3, (int i) => [Colors.black, Colors.black, Colors.black],
                       growable: false);
                 });

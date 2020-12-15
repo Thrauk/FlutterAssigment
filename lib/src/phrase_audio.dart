@@ -23,10 +23,11 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   final AudioPlayer audioPlayer = AudioPlayer();
 
+  // ignore: always_specify_types
   Future play() async {
-    int result = await audioPlayer.play('https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q=test&tl=ro&total=1&idx=0&textlen=4');
+    final int result = await audioPlayer.play('https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q=test&tl=ro&total=1&idx=0&textlen=4');
     if (result == 1) {
-      await audioPlayer.seek(Duration(seconds: 1));
+      await audioPlayer.seek(const Duration(seconds: 1));
     }
   }
 
@@ -40,7 +41,7 @@ class _HomeState extends State<Home> {
           child: Column(
             children: <Widget>[
               GridView.builder(
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: 8,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
