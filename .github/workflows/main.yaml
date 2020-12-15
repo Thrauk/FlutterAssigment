@@ -4,9 +4,7 @@ on: push
 jobs:
   format:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        module: [ src ]
+
     steps:
       - name: Install Flutter
         uses: subosito/flutter-action@v1
@@ -17,7 +15,6 @@ jobs:
         run: flutter pub get
       - name: Format code
         run: |
-          cd ${{ matrix.module }}
           flutter pub pub run --enable-asserts ci/bots/format.dart --set-exit-if-changed -n -l 120
 
   analyze:
