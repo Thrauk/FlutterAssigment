@@ -17,7 +17,7 @@ dependencies:
   http: ^0.12.2
 
 
-  cupertino_icons: ^1.0.1
+  cupertino_icons: ^1.0.0
   pedantic: ^1.9.2
 
 dev_dependencies:
