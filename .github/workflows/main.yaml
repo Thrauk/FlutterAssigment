@@ -15,7 +15,7 @@ jobs:
         run: flutter pub get
       - name: Format code
         run: |
-          flutter pub pub run --enable-asserts ci/bots/format.dart --set-exit-if-changed -n -l 180
+          flutter pub pub run --enable-asserts ci/bots/format.dart --set-exit-if-changed -n -l 120
 
   analyze:
     runs-on: ubuntu-latest
