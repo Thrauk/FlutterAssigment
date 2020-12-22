@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
-
+/*
 void main() {
   runApp(MyApp());
 }
@@ -129,6 +129,9 @@ class _HomeState extends State<Home> {
         movies.add(Movie(title: title, imageUrl: imageUrl, genre: genres, year: year, rating: rating));
       }
     }
+    setState(() {
+      
+    });
   }
 
   @override
@@ -322,3 +325,4 @@ class _HomeState extends State<Home> {
     );
   }
 }
+*/
