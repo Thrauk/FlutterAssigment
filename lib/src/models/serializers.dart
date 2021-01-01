@@ -11,11 +11,3 @@ part 'serializers.g.dart';
   Movie,
 ])
 Serializers serializers = (_$serializers.toBuilder()..addPlugin(StandardJsonPlugin())).build();
-
-void main() {
-  final movie = Movie();
-  movie
-    ..title
-    ..runtime
-    ..year;
-}

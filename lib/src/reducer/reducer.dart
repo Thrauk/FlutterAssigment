@@ -2,12 +2,14 @@ import 'package:aplicatie/src/actions/get_movies.dart';
 import 'package:aplicatie/src/models/app_state.dart';
 
 AppState reducer(AppState state, dynamic action) {
-  if(action is GetMovies){
-    final AppStateBuilder builder = state.toBuilder();
+  final AppStateBuilder builder = state.toBuilder();
+  if (action is GetMovies) {
     builder.isLoading = true;
-    return builder.build();
-  } else if(action is GetMoviesSuccessful || action is GetMoviesError){
-    return state.isLoading = false;
+  } else if (action is GetMoviesSuccessful){
+    builder.movies.addAll(action.movies);
+    builder.isLoading = false;
+  } else if (action is GetMoviesError){
+    builder.isLoading = false;
   }
-  return state;
+  return builder.build();
 }
