@@ -54,7 +54,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(),
       body: Builder(builder: (BuildContext conext) {
-        if(_isLoading){
+        if (_isLoading) {
           return const Center(
             child: CircularProgressIndicator(),
           );

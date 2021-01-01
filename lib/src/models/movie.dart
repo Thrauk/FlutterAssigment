@@ -9,7 +9,8 @@ part 'movie.g.dart';
 
 abstract class Movie implements Built<Movie, MovieBuilder> {
   factory Movie([void Function(MovieBuilder) updates]) = _$Movie;
-  factory Movie.fromJson(dynamic json){
+
+  factory Movie.fromJson(dynamic json) {
     return serializers.deserializeWith(serializer, json);
   }
 
@@ -37,5 +38,4 @@ abstract class Movie implements Built<Movie, MovieBuilder> {
   String get largeCoverImage;
 
   static Serializer<Movie> get serializer => _$movieSerializer;
-
 }

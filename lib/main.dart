@@ -9,7 +9,6 @@ import 'package:http/http.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
-
 import 'src/presentation/home_page.dart';
 
 /*
@@ -36,10 +35,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StoreProvider<AppState>(
-      store: store,
-      child: const MaterialApp(
-        home: Home(),
-      )
-    );
+        store: store,
+        child: const MaterialApp(
+          home: Home(),
+        ));
   }
 }

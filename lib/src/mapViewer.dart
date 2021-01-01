@@ -11,6 +11,7 @@ class Country {
     @required this.name,
     @required this.flagUrl,
   });
+
   final String name;
   final String flagUrl;
 }
@@ -35,7 +36,7 @@ class _HomeState extends State<Home> {
   List<Country> countries = <Country>[];
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
     getFlags();
   }
@@ -47,11 +48,9 @@ class _HomeState extends State<Home> {
     for (final String item in items.skip(1)) {
       final String url = 'https://www.worldometers.info/img/flags/${item.split('"')[0]}';
       final String name = item.split('padding-top:10px">')[1].split('<')[0];
-      countries.add(Country(name: name,flagUrl:url));
+      countries.add(Country(name: name, flagUrl: url));
     }
-    setState(() {
-
-    });
+    setState(() {});
   }
 
   @override
@@ -85,7 +84,7 @@ class _HomeState extends State<Home> {
                         ),
                         Expanded(
                           flex: 1,
-                          child: Text(countries[index].name,textAlign: TextAlign.center),
+                          child: Text(countries[index].name, textAlign: TextAlign.center),
                         ),
                       ],
                     ),

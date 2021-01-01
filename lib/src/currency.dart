@@ -37,12 +37,7 @@ class _HomePageState extends State<HomePage> {
   List<String> currencyShort = ['EUR', 'RON', 'USD', 'GBP'];
 
   // ignore: always_specify_types
-  List<String> currency = [
-    'EUR / Euro',
-    'RON / Romanian Leu',
-    'USD / US Dollar',
-    'GBP / Pound Sterling'
-  ];
+  List<String> currency = ['EUR / Euro', 'RON / Romanian Leu', 'USD / US Dollar', 'GBP / Pound Sterling'];
 
   // ignore: always_specify_types
   List<double> valueInEur = [1.0, 0.2054, 0.8434, 1.1205];
@@ -68,12 +63,9 @@ class _HomePageState extends State<HomePage> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: <Widget>[
-            const Align(
-                alignment: AlignmentDirectional.centerStart,
-                child: Text('Amount')),
+            const Align(alignment: AlignmentDirectional.centerStart, child: Text('Amount')),
             TextField(
-              keyboardType:
-                  const TextInputType.numberWithOptions(decimal: true),
+              keyboardType: const TextInputType.numberWithOptions(decimal: true),
               style: const TextStyle(
                 fontSize: 30.0,
                 color: Colors.blueAccent,
@@ -144,27 +136,14 @@ class _HomePageState extends State<HomePage> {
                 } else {
                   if (error == null || error == '') {
                     final double fromValue = double.parse(amount);
-                    final double toValue = fromValue *
-                        valueInEur.elementAt(fromIndex) /
-                        valueInEur.elementAt(toIndex);
+                    final double toValue = fromValue * valueInEur.elementAt(fromIndex) / valueInEur.elementAt(toIndex);
                     setState(() {
-                      if (toValue.toInt() ==
-                          double.parse(toValue.toStringAsFixed(2))) {
-                        result = fromValue.toStringAsFixed(2) +
-                            ' ' +
-                            currencyShort.elementAt(fromIndex) +
-                            ' is ';
-                        result += toValue.toInt().toString() +
-                            ' ' +
-                            currencyShort.elementAt(toIndex);
+                      if (toValue.toInt() == double.parse(toValue.toStringAsFixed(2))) {
+                        result = fromValue.toStringAsFixed(2) + ' ' + currencyShort.elementAt(fromIndex) + ' is ';
+                        result += toValue.toInt().toString() + ' ' + currencyShort.elementAt(toIndex);
                       } else {
-                        result = fromValue.toStringAsFixed(2) +
-                            ' ' +
-                            currencyShort.elementAt(fromIndex) +
-                            ' is ';
-                        result += toValue.toStringAsFixed(2) +
-                            ' ' +
-                            currencyShort.elementAt(toIndex);
+                        result = fromValue.toStringAsFixed(2) + ' ' + currencyShort.elementAt(fromIndex) + ' is ';
+                        result += toValue.toStringAsFixed(2) + ' ' + currencyShort.elementAt(toIndex);
                       }
                     });
                   }

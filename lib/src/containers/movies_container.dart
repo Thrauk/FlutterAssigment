@@ -7,16 +7,14 @@ import 'package:redux/redux.dart';
 import 'package:meta/meta.dart';
 
 class MoviesContainer extends StatelessWidget {
-  const MoviesContainer({Key key,@required this.builder}) : super(key: key);
+  const MoviesContainer({Key key, @required this.builder}) : super(key: key);
   final ViewModelBuilder<BuiltList<Movie>> builder;
-
-
 
   @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState, BuiltList<Movie>>(
       builder: builder,
-      converter: (Store<AppState> store){
+      converter: (Store<AppState> store) {
         return store.state.movies;
       },
     );

@@ -19,12 +19,8 @@ Future<void> main(List<String> arguments) async {
   }
 
   final String moduleRoot = rootDir.path;
-  final List<String> files = Directory(moduleRoot)
-      .listSync(recursive: true, followLinks: false)
-      .whereType<File>()
-      .map((File it) => it.path.split('$moduleRoot/')[1])
-      .where(fileFilter)
-      .toList();
+  final List<String> files =
+      Directory(moduleRoot).listSync(recursive: true, followLinks: false).whereType<File>().map((File it) => it.path.split('$moduleRoot/')[1]).where(fileFilter).toList();
 
   await _runFlutterFormat(moduleRoot, options: <String>[...arguments, ...files]);
 
