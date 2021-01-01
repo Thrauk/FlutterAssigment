@@ -41,7 +41,8 @@ class _$MovieSerializer implements StructuredSerializer<Movie> {
   }
 
   @override
-  Movie deserialize(Serializers serializers, Iterable<Object> serialized, {FullType specifiedType = FullType.unspecified}) {
+  Movie deserialize(Serializers serializers, Iterable<Object> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = new MovieBuilder();
 
     final iterator = serialized.iterator;
@@ -63,7 +64,8 @@ class _$MovieSerializer implements StructuredSerializer<Movie> {
           result.runtime = serializers.deserialize(value, specifiedType: const FullType(int)) as int;
           break;
         case 'genres':
-          result.genres.replace(serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)])) as BuiltList<Object>);
+          result.genres.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [const FullType(String)])) as BuiltList<Object>);
           break;
         case 'summary':
           result.summary = serializers.deserialize(value, specifiedType: const FullType(String)) as String;
@@ -106,7 +108,17 @@ class _$Movie extends Movie {
 
   factory _$Movie([void Function(MovieBuilder) updates]) => (new MovieBuilder()..update(updates)).build();
 
-  _$Movie._({this.title, this.year, this.rating, this.runtime, this.genres, this.summary, this.backgroundImage, this.mediumCoverImage, this.largeCoverImage}) : super._() {
+  _$Movie._(
+      {this.title,
+      this.year,
+      this.rating,
+      this.runtime,
+      this.genres,
+      this.summary,
+      this.backgroundImage,
+      this.mediumCoverImage,
+      this.largeCoverImage})
+      : super._() {
     if (title == null) {
       throw new BuiltValueNullFieldError('Movie', 'title');
     }
@@ -162,7 +174,13 @@ class _$Movie extends Movie {
   // ignore: avoid_equals_and_hash_code_on_mutable_classes
   int get hashCode {
     return $jf($jc(
-        $jc($jc($jc($jc($jc($jc($jc($jc(0, title.hashCode), year.hashCode), rating.hashCode), runtime.hashCode), genres.hashCode), summary.hashCode), backgroundImage.hashCode),
+        $jc(
+            $jc(
+                $jc(
+                    $jc($jc($jc($jc($jc(0, title.hashCode), year.hashCode), rating.hashCode), runtime.hashCode),
+                        genres.hashCode),
+                    summary.hashCode),
+                backgroundImage.hashCode),
             mediumCoverImage.hashCode),
         largeCoverImage.hashCode));
   }

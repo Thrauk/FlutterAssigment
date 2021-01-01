@@ -129,9 +129,7 @@ class _HomeState extends State<Home> {
         movies.add(Movie(title: title, imageUrl: imageUrl, genre: genres, year: year, rating: rating));
       }
     }
-    setState(() {
-      
-    });
+    setState(() {});
   }
 
   @override

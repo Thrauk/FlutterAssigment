@@ -109,7 +109,9 @@ class _HomeState extends State<Home> {
     final List<int> coord2 = coords[2];
     for (int i = 0; i < 3; i++) {
       for (int j = 0; j < 3; j++) {
-        if ((coord0[0] != i || coord0[1] != j) && (coord1[0] != i || coord1[1] != j) && (coord2[0] != i || coord2[1] != j)) {
+        if ((coord0[0] != i || coord0[1] != j) &&
+            (coord1[0] != i || coord1[1] != j) &&
+            (coord2[0] != i || coord2[1] != j)) {
           tableColor[i][j] = Colors.black;
         }
       }
@@ -196,7 +198,8 @@ class _HomeState extends State<Home> {
                       _onTap(index);
                     }
                   },
-                  child: AnimatedContainer(color: tableColor[index ~/ 3][index % 3], duration: const Duration(milliseconds: 500)));
+                  child: AnimatedContainer(
+                      color: tableColor[index ~/ 3][index % 3], duration: const Duration(milliseconds: 500)));
             },
           ),
           Visibility(
@@ -214,7 +217,8 @@ class _HomeState extends State<Home> {
                   // ignore: always_specify_types
                   table = List<List<int>>.generate(3, (int i) => [0, 0, 0], growable: false);
                   // ignore: always_specify_types
-                  tableColor = List<List<Color>>.generate(3, (int i) => [Colors.black, Colors.black, Colors.black], growable: false);
+                  tableColor = List<List<Color>>.generate(3, (int i) => [Colors.black, Colors.black, Colors.black],
+                      growable: false);
                 });
               },
             ),
