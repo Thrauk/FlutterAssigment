@@ -143,6 +143,7 @@ class _$Movie extends Movie {
   MovieBuilder toBuilder() => new MovieBuilder()..replace(this);
 
   @override
+  // ignore: avoid_equals_and_hash_code_on_mutable_classes
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is Movie &&
@@ -158,6 +159,7 @@ class _$Movie extends Movie {
   }
 
   @override
+  // ignore: avoid_equals_and_hash_code_on_mutable_classes
   int get hashCode {
     return $jf($jc(
         $jc($jc($jc($jc($jc($jc($jc($jc(0, title.hashCode), year.hashCode), rating.hashCode), runtime.hashCode), genres.hashCode), summary.hashCode), backgroundImage.hashCode),

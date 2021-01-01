@@ -30,12 +30,14 @@ class _$AppState extends AppState {
   AppStateBuilder toBuilder() => new AppStateBuilder()..replace(this);
 
   @override
+  // ignore: avoid_equals_and_hash_code_on_mutable_classes
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is AppState && movies == other.movies && isLoading == other.isLoading;
   }
 
   @override
+  // ignore: avoid_equals_and_hash_code_on_mutable_classes
   int get hashCode {
     return $jf($jc($jc(0, movies.hashCode), isLoading.hashCode));
   }
