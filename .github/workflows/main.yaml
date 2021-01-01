@@ -4,7 +4,6 @@ on: push
 jobs:
   format:
     runs-on: ubuntu-latest
-
     steps:
       - name: Install Flutter
         uses: subosito/flutter-action@v1
@@ -14,8 +13,7 @@ jobs:
       - name: Setup repository
         run: flutter pub get
       - name: Format code
-        run: |
-          flutter pub pub run --enable-asserts ci/bots/format.dart --set-exit-if-changed -n -l 120
+        run: flutter pub pub run --enable-asserts ci/bots/format.dart --set-exit-if-changed -n -l 120
 
   analyze:
     runs-on: ubuntu-latest
