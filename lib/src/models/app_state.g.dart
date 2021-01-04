@@ -10,13 +10,25 @@ class _$AppState extends AppState {
   @override
   final BuiltList<Movie> movies;
   @override
+  final int nextPage;
+  @override
+  final String quality;
+  @override
+  final String genre;
+  @override
   final bool isLoading;
 
-  factory _$AppState([void Function(AppStateBuilder) updates]) => (new AppStateBuilder()..update(updates)).build();
+  factory _$AppState([void Function(AppStateBuilder) updates]) =>
+      (new AppStateBuilder()..update(updates)).build();
 
-  _$AppState._({this.movies, this.isLoading}) : super._() {
+  _$AppState._(
+      {this.movies, this.nextPage, this.quality, this.genre, this.isLoading})
+      : super._() {
     if (movies == null) {
       throw new BuiltValueNullFieldError('AppState', 'movies');
+    }
+    if (nextPage == null) {
+      throw new BuiltValueNullFieldError('AppState', 'nextPage');
     }
     if (isLoading == null) {
       throw new BuiltValueNullFieldError('AppState', 'isLoading');
@@ -24,27 +36,42 @@ class _$AppState extends AppState {
   }
 
   @override
-  AppState rebuild(void Function(AppStateBuilder) updates) => (toBuilder()..update(updates)).build();
+  AppState rebuild(void Function(AppStateBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   AppStateBuilder toBuilder() => new AppStateBuilder()..replace(this);
 
   @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is AppState && movies == other.movies && isLoading == other.isLoading;
+    return other is AppState &&
+        movies == other.movies &&
+        nextPage == other.nextPage &&
+        quality == other.quality &&
+        genre == other.genre &&
+        isLoading == other.isLoading;
   }
 
   @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
   int get hashCode {
-    return $jf($jc($jc(0, movies.hashCode), isLoading.hashCode));
+    return $jf($jc(
+        $jc(
+            $jc($jc($jc(0, movies.hashCode), nextPage.hashCode),
+                quality.hashCode),
+            genre.hashCode),
+        isLoading.hashCode));
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('AppState')..add('movies', movies)..add('isLoading', isLoading)).toString();
+    return (newBuiltValueToStringHelper('AppState')
+          ..add('movies', movies)
+          ..add('nextPage', nextPage)
+          ..add('quality', quality)
+          ..add('genre', genre)
+          ..add('isLoading', isLoading))
+        .toString();
   }
 }
 
@@ -52,15 +79,23 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
   _$AppState _$v;
 
   ListBuilder<Movie> _movies;
-
   ListBuilder<Movie> get movies => _$this._movies ??= new ListBuilder<Movie>();
-
   set movies(ListBuilder<Movie> movies) => _$this._movies = movies;
 
+  int _nextPage;
+  int get nextPage => _$this._nextPage;
+  set nextPage(int nextPage) => _$this._nextPage = nextPage;
+
+  String _quality;
+  String get quality => _$this._quality;
+  set quality(String quality) => _$this._quality = quality;
+
+  String _genre;
+  String get genre => _$this._genre;
+  set genre(String genre) => _$this._genre = genre;
+
   bool _isLoading;
-
   bool get isLoading => _$this._isLoading;
-
   set isLoading(bool isLoading) => _$this._isLoading = isLoading;
 
   AppStateBuilder();
@@ -68,6 +103,9 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
   AppStateBuilder get _$this {
     if (_$v != null) {
       _movies = _$v.movies?.toBuilder();
+      _nextPage = _$v.nextPage;
+      _quality = _$v.quality;
+      _genre = _$v.genre;
       _isLoading = _$v.isLoading;
       _$v = null;
     }
@@ -91,14 +129,21 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
   _$AppState build() {
     _$AppState _$result;
     try {
-      _$result = _$v ?? new _$AppState._(movies: movies.build(), isLoading: isLoading);
+      _$result = _$v ??
+          new _$AppState._(
+              movies: movies.build(),
+              nextPage: nextPage,
+              quality: quality,
+              genre: genre,
+              isLoading: isLoading);
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'movies';
         movies.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError('AppState', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(
+            'AppState', _$failedField, e.toString());
       }
       rethrow;
     }
