@@ -12,21 +12,16 @@ class YtsApi {
   final Client _client;
 
   Future<List<Movie>> getMovies(int page, String quality, String genre) async {
-    final Uri url = Uri(
-      scheme: 'https',
-      host: 'yts.mx',
-      pathSegments: <String>[
-        'api',
-        'v2',
-        'list_movies.json',
-      ],
-      queryParameters: <String, String>{
-        'limit': '4',
-        'page': '$page',
-        if(quality != null) 'quality': quality,
-        if(genre != null) 'genre':genre,
-      }
-    );
+    final Uri url = Uri(scheme: 'https', host: 'yts.mx', pathSegments: <String>[
+      'api',
+      'v2',
+      'list_movies.json',
+    ], queryParameters: <String, String>{
+      'limit': '4',
+      'page': '$page',
+      if (quality != null) 'quality': quality,
+      if (genre != null) 'genre': genre,
+    });
     final Response response = await _client.get(url);
 
     final String body = response.body;
