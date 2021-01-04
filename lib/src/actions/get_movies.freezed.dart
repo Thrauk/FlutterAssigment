@@ -35,7 +35,7 @@ class _$GetMoviesTearOff {
 
 /// @nodoc
 // ignore: unused_element
-const $GetMovies = _$GetMoviesTearOff();
+const _$GetMoviesTearOff $GetMovies = _$GetMoviesTearOff();
 
 /// @nodoc
 mixin _$GetMovies {
@@ -110,6 +110,7 @@ class _$GetMoviesStart implements GetMoviesStart {
   }
 
   @override
+  // ignore: avoid_equals_and_hash_code_on_mutable_classes
   bool operator ==(dynamic other) {
     return identical(this, other) || (other is GetMoviesStart);
   }
